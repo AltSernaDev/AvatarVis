@@ -7,7 +7,10 @@ public class Interaction : MonoBehaviour
 {
     void Update()
     {
-        Selecting();
+        if (Brain.brainCode.estadoActual == Brain.estados.navegando)
+        {
+            Selecting();
+        }
     }
     void Selecting()
     {

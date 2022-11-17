@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RecursosRegiones : MonoBehaviour
 {
-    [Header("Epoca Roku")]
+    /*[Header("Epoca Roku")]
     public string nombreRoku;
     public string descrpRoku;
     //public Transform[]
@@ -15,5 +15,10 @@ public class RecursosRegiones : MonoBehaviour
     
     [Header("Epoca Korra")]
     public string nombreKorra;
-    public string descrpKorra;
+    public string descrpKorra;*/
+    
+    [Header("")]
+    public string nombre;
+    public string descripcion;
+    public Transform camPosition;
 }

@@ -5,89 +5,34 @@ using UnityEngine.UI;
 
 public class GastroYArtesCtrl : MonoBehaviour
 {
-    [SerializeField] private Image GastroImage;
-    [SerializeField] private string arteCrtl;
-    [SerializeField] private Image arteCtrlImage;
-    [SerializeField] private GameObject cuerpo;
-    [SerializeField] private GameObject titulo;
-    [SerializeField] private GameObject botonGastro;
-    [SerializeField] private GameObject botonArte;
-    [SerializeField] private GameObject botonCerrar;
+    [SerializeField] private GameObject[] gastro, arte;
+    [SerializeField] private GameObject paneles;
 
-    
-    [Header("Agua Sur")]
-    [SerializeField] private Image GastroImage_AguaSur;
-    [SerializeField] private string arteCrtl_AguaSur;
-    [SerializeField] private Image arteCtrlImage_AguaSur;
-    [Header("Agua Norte")]
-    [SerializeField] private Image GastroImage_AguaNorte;
-    [SerializeField] private string arteCrtl_AguaNorte;
-    [SerializeField] private Image arteCtrlImage_AguaNorte;
-    [Header("Agua Fuego")]
-    [SerializeField] private Image GastroImage_Fuego;
-    [SerializeField] private string arteCrtl_Fuego;
-    [SerializeField] private Image arteCtrlImage_Fuego;
-    [Header("Tierra")]
-    [SerializeField] private Image GastroImage_Tierra;
-    [SerializeField] private string arteCrtl_Tierra;
-    [SerializeField] private Image arteCtrlImage_Tierra;
-    [Header("Aire")]
-    [SerializeField] private Image GastroImage_Aire;
-    [SerializeField] private string arteCrtl_Aire;
-    [SerializeField] private Image arteCtrlImage_Aire;
-
-    public void GastronomiaBoton()
+    public void CerrarGastro()
     {
-        switch (Brain.brainCode.regionActiva)
+        foreach (GameObject gastroIndividual in gastro)
         {
-            case Brain.region.aguaSur:
-                GastroImage = GastroImage_AguaSur;
-                break;
-            case Brain.region.aguaNorte:
-                GastroImage = GastroImage_AguaNorte;
-                break;
-            case Brain.region.fuego:
-                GastroImage = GastroImage_Fuego;
-                break;
-            case Brain.region.tierra:
-                GastroImage = GastroImage_Tierra;
-                break;
-            case Brain.region.aire:
-                GastroImage = GastroImage_Aire;
-                break;
+            gastroIndividual.SetActive(false);
         }
-        //==============================//
-            //Activar y apagar botones
-        //==============================//
+        paneles.SetActive(false);
     }
 
-    public void ArtesCtrlBoton()
+    public void AbrirGastro(int thisGastro)
     {
-        switch (Brain.brainCode.regionActiva)
+        paneles.SetActive(true);
+        gastro[thisGastro].SetActive(true);
+    }
+    
+    public void CerrarArtes()
+    {
+        foreach (GameObject arteIndividual in arte)
         {
-            case Brain.region.aguaSur:
-                arteCrtl = arteCrtl_AguaSur;
-                arteCtrlImage = arteCtrlImage_AguaSur;
-                break;
-            case Brain.region.aguaNorte:
-                arteCrtl = arteCrtl_AguaNorte;
-                arteCtrlImage = arteCtrlImage_AguaNorte;
-                break;
-            case Brain.region.fuego:
-                arteCrtl = arteCrtl_Fuego;
-                arteCtrlImage = arteCtrlImage_Fuego;
-                break;
-            case Brain.region.tierra:
-                arteCrtl = arteCrtl_Tierra;
-                arteCtrlImage = arteCtrlImage_Tierra;
-                break;
-            case Brain.region.aire:
-                arteCrtl = arteCrtl_Aire;
-                arteCtrlImage = arteCtrlImage_Aire;
-                break;
+            arteIndividual.SetActive(false);
         }
-        //==============================//
-            //Activar y apagar botones
-        //==============================//
+    }
+
+    public void AbrirArte(int thisArte)
+    {
+        arte[thisArte].SetActive(true);
     }
 }

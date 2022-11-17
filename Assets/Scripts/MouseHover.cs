@@ -19,7 +19,8 @@ public class MouseHover : MonoBehaviour
     {
         if(Brain.brainCode.onCanvasDisplayed)
             return;
-        region.transform.localScale *= 1.1f;
+        //region.transform.localScale *= 1.1f;
+        //transform.localScale *= 1.1f;
         Mat.color += otherMat.color;
         hovered = true;
     }
@@ -28,7 +29,8 @@ public class MouseHover : MonoBehaviour
     {
         if(Brain.brainCode.onCanvasDisplayed)
             return;
-        region.transform.localScale /= 1.1f;
+        //region.transform.localScale /= 1.1f;
+        //transform.localScale /= 1.1f;
         Mat.color -= otherMat.color;
         hovered = false;
     }
@@ -39,7 +41,8 @@ public class MouseHover : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                region.transform.localScale /= 1.1f;
+                //region.transform.localScale /= 1.1f;
+                //transform.localScale /= 1.1f;
                 Mat.color -= otherMat.color;
                 hovered = false;
             }

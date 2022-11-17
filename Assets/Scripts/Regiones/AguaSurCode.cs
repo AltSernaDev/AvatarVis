@@ -12,6 +12,7 @@ public class AguaSurCode : MonoBehaviour, MouseClickInterface
     [SerializeField] private GameObject panelCanvas;
     [SerializeField] private TextMeshProUGUI nombreText;
     [SerializeField] private TextMeshProUGUI DescrpText;
+    [SerializeField] private GameObject botonesInfo;
 
     private void Start()
     {
@@ -22,27 +23,26 @@ public class AguaSurCode : MonoBehaviour, MouseClickInterface
     {
         Brain.brainCode.estadoActual = Brain.estados.zoom;
         Brain.brainCode.onCanvasDisplayed = true;
+        Brain.brainCode.botonesEpocas.SetActive(false);
         Brain.brainCode.regionActiva = estaRegion;
+        Brain.brainCode.PonerMusicaRegion();
         // mover camara
         // poner musica
         
-        switch (Brain.brainCode.epocaOn)
-        {
-            case Brain.epocas.Roku:
-                nombreText.text = recursos.nombreRoku;
-                DescrpText.text = recursos.descrpRoku;
-                break;
-            case Brain.epocas.Aang:
-                nombreText.text = recursos.nombreAang;
-                DescrpText.text = recursos.descrpAang;
-                break;
-            case Brain.epocas.Korra:
-                nombreText.text = recursos.nombreKorra;
-                DescrpText.text = recursos.descrpKorra;
-                break;
-        }
+
+        nombreText.text = recursos.nombre;
+        DescrpText.text = recursos.descripcion;
+        //mover la camara
         
         setOnCanvas();
+        if (Brain.brainCode.regionActiva == Brain.region.ninguna || Brain.brainCode.regionActiva == Brain.region.republica)
+        {
+            botonesInfo.SetActive(false);
+        }
+        else
+        {
+            botonesInfo.SetActive(true);
+        }
     }
 
     private void setOnCanvas()
